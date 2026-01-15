@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bittz Solution | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #7950f2;
+            --panel: #0f0f11;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-dim: #8892b0;
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+
+        /* Nav */
+        .nav-container {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-content { height: 70px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+        .purple-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+
+        /* Project Layout: Code Preview First */
+        .section { padding: 120px 0 60px; }
+        .project-item {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr; /* Preview on Left, Info on Right */
+            gap: 40px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            transition: 0.3s ease;
+        }
+        .project-item:hover { border-color: var(--accent); }
+
+        /* Left Side: The "Code Preview" Window */
+        .project-preview {
+            background: #000;
+            padding: 20px 0 0 20px;
+            position: relative;
+        }
+        .window-header {
+            background: #1a1a1c;
+            height: 35px;
+            border-radius: 8px 0 0 0;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            gap: 6px;
+            border: 1px solid var(--border);
+            border-bottom: none;
+        }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        /* FIXED HEIGHT 290px AS REQUESTED */
+        .preview-window {
+            width: 100%;
+            height: 290px; 
+            border-left: 1px solid var(--border);
+            border-top: 1px solid var(--border);
+            background: #111;
+            overflow: hidden;
+        }
+        .preview-window img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top; /* Ensures the website header is visible */
+            opacity: 0.85;
+            transition: 0.5s;
+        }
+        .project-item:hover .preview-window img { opacity: 1; transform: scale(1.02); }
+
+        /* Right Side: Content */
+        .project-info {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .proj-num { font-size: 11px; color: var(--accent); letter-spacing: 2px; margin-bottom: 10px; font-weight: 700; }
+        .project-info h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 15px; font-weight: 600; }
+        .proj-desc { font-weight: 300; font-size: 0.92rem; line-height: 1.7; color: var(--text-dim); margin-bottom: 25px; }
+
+        .proj-link { 
+            font-size: 12px; font-weight: 600; color: white; text-decoration: none; 
+            text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+        }
+
+        .footer { padding: 80px 0; border-top: 1px solid var(--border); text-align: center; }
+        .footer h2 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 15px; }
+        
+        @media (max-width: 1024px) {
+            .project-item { grid-template-columns: 1fr; }
+            .project-preview { padding: 20px 20px 0 20px; }
+            .preview-window { height: 250px; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <div class="container nav-content">
+            <div class="logo"><span class="purple-dot"></span> BITTZ SOLUTION</div>
+        </div>
+    </nav>
+
+    <section id="work" class="section container">
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/fikresadaat.png" alt="Welfare Site">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_01</span>
+                <h3>Fikre Sadaat Welfare</h3>
+                <p class="proj-desc">We redesigned the Fikhre Sadaat Welfare Foundation website with a modern, user-friendly UI and completely restructured the content for better clarity and impact. A secure and seamless donation form was developed, enabling smooth online contributions with improved payment flow and reliability. The project focused on performance optimization, clean architecture, and long-term stability.</p>
+                <a href="https://fikresadaatwelfare.com/" target="_blank" class="proj-link">View Site<i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/bittzsolutions.png" alt="Bittz Solutions">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_02</span>
+                <h3>Bittz Solutions</h3>
+                <p class="proj-desc">We developed the Bittz Solutions website with a modern, professional design that highlights their full range of digital services, including custom software and application development, website and branding solutions, digital marketing, AI & automation services, and IT/cloud support. The redesigned site showcases their expertise in helping businesses grow online.</p>
+                <a href="https://biitzsolutions.com" class="proj-link">View Site <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/cometconsultancy.png" alt="Comet">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_03</span>
+                <h3>Comet Consultancy</h3>
+                <p class="proj-desc">We redesigned the Comet Consultancy WordPress website to address poor UI and performance issues and delivered a modern, professional, high performing online presence. The updated design clearly showcases their range of financial and business services including accounting, taxation, VAT support, and compliance solutions.</p>
+                <a href="https://cometconsultancy.com/" target="_blank" class="proj-link">View Site <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/travelwithsaad.png" alt="Travel">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_04</span>
+                <h3>Travel With Saad Zakaria</h3>
+                <p class="proj-desc">An ongoing local project aimed at creating a comprehensive travel booking platform for hotels, tours, and car rentals. It features dynamic date-based pricing, multi-image uploads, and an intuitive typeahead search. Currently running locally, this project focuses on modern UI and seamless backend functionality.</p>
+                <a href="#" class="proj-link">View Development <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/theorganicvalley.png" alt="Organic">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_05</span>
+                <h3>The Organic Valley</h3>
+                <p class="proj-desc">The Organic Valley is an e-commerce website focused on selling natural and organic products. My contributions include implementing customized grouped product functionality, adding and modifying homepage sections, and ensuring a smooth, user-friendly shopping experience with design improvements to align with brand needs.</p>
+                <a href="https://theorganicvalley.pk" class="proj-link">Visit Store <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/tibbeyunani_web.png" alt="Tibb">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_06</span>
+                <h3>Tibb E Yunani</h3>
+                <p class="proj-desc">Tibb e Yunani is a fully responsive website built for a traditional herbal medicine clinic. The site features an informative About Us page, easy patient inquiries via a consultation form, and a blog section for SEO. The design emphasizes trust, privacy, and cultural relevance while maintaining a modern layout.</p>
+                <a href="https://tibbeyunani.com/" target="_blank" class="proj-link">View Site <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/supertechleds_web.png" alt="SupertechLEDs">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_07</span>
+                <h3>SupertechLEDs</h3>
+                <p class="proj-desc">A professional e-commerce platform specializing in LED lighting. My work involves maintaining and improving the site, developing customized featured categories, product carousels, and SEO-optimized blog sections to enhance content marketing and the customer shopping experience.</p>
+                <a href="https://supertechleds.com" class="proj-link">View Site <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-preview">
+                <div class="window-header">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="preview-window">
+                    <img src="./assets/img/supertechlights_web.png" alt="SupertechLights">
+                </div>
+            </div>
+            <div class="project-info">
+                <span class="proj-num">PROJECT_08</span>
+                <h3>SupertechLights</h3>
+                <p class="proj-desc">A Shopify-based e-commerce website where I actively manage navigation structures, dynamic category carousels, and custom product filters. Ongoing optimizations ensure the site remains up-to-date and perfectly aligned with the brand's digital marketing goals and product strategy.</p>
+                <a href="https://supertechlights.com" class="proj-link">Visit Site <i data-lucide="external-link" size="14"></i></a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer container">
+        <h2>Work with us.</h2>
+        <a href="mailto:haseebahmedkhatri123@gmail.com" style="color: var(--accent); text-decoration: none;">hello@bittz.solution</a>
+        <p style="margin-top: 40px; font-size: 11px; color: var(--text-dim);">© 2026 BITTZ SOLUTION STUDIO</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
